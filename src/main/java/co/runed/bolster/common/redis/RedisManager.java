@@ -140,6 +140,13 @@ public class RedisManager extends JedisPubSub
         pubRedis.set(key, value);
     }
 
+    public void close()
+    {
+        this.subRedis.close();
+        this.pubRedis.close();
+        this.jedisPool.close();
+    }
+
     public static RedisManager getInstance()
     {
         return _instance;
