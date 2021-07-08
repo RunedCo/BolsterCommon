@@ -34,6 +34,7 @@ public class RedisManager extends JedisPubSub
 
         /* Connect to Redis */
         this.jedisPool = new JedisPool(redisHost, redisPort);
+        this.channels = channels;
     }
 
     public void setup()
