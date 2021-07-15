@@ -1,6 +1,7 @@
 package co.runed.bolster.common.redis;
 
 import co.runed.bolster.common.redis.payload.Payload;
+import co.runed.bolster.common.util.StringUtil;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
@@ -97,7 +98,7 @@ public class RedisManager extends JedisPubSub
     {
         Payload payload = Payload.fromJson(message, PayloadImpl.class);
 
-        if (payload.target == null || !payload.target.equals(getSenderId())) return;
+        if (payload.target == null || !StringUtil.wildcardMatch(getSenderId(), payload.target)) return;
 
         System.out.println("Channel " + channel + " has sent a message from " + payload.sender);
 
@@ -126,7 +127,7 @@ public class RedisManager extends JedisPubSub
     public void publish(String target, String channel, Payload payload)
     {
         payload.sender = this.getSenderId();
-        payload.target = target;
+        if (target != null) payload.target = target;
 
         pubRedis.publish(channel, payload.toJson());
     }

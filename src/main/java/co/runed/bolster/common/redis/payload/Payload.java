@@ -1,7 +1,7 @@
 package co.runed.bolster.common.redis.payload;
 
+import co.runed.bolster.common.gson.GsonUtil;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public abstract class Payload
 {
@@ -10,7 +10,7 @@ public abstract class Payload
 
     public String toJson()
     {
-        Gson gson = new GsonBuilder().create();
+        Gson gson = GsonUtil.create();
 
         return gson.toJson(this);
     }
@@ -22,7 +22,7 @@ public abstract class Payload
 
     public static <T extends Payload> T fromJson(String json, Class<T> type)
     {
-        Gson gson = new GsonBuilder().create();
+        Gson gson = GsonUtil.create();
 
         return gson.fromJson(json, type);
     }

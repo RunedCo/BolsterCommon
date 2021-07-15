@@ -1,4 +1,4 @@
-package co.runed.bolster.common.util.collection;
+package co.runed.bolster.common.collection;
 
 import java.util.Collection;
 import java.util.List;
