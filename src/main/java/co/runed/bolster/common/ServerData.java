@@ -1,5 +1,10 @@
 package co.runed.bolster.common;
 
+import co.runed.bolster.common.player.BasicPlayerInfo;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ServerData
 {
     public String id;
@@ -14,7 +19,7 @@ public class ServerData
 
     public int maxPlayers;
     public int maxPremiumPlayers;
-    public int currentPlayers;
+    public List<BasicPlayerInfo> onlinePlayers = new ArrayList<>();
 
     public ServerData()
     {
