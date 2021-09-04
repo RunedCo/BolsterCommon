@@ -2,32 +2,27 @@ package co.runed.bolster.common.collection;
 
 import java.util.*;
 
-public class RandomCollection<E>
-{
+public class RandomCollection<E> {
     private final NavigableMap<Double, E> map = new TreeMap<>();
     private final Collection<E> entries = new ArrayList<>();
     private final Random random;
     private double total = 0;
 
-    public RandomCollection()
-    {
+    public RandomCollection() {
         this(new Random());
     }
 
-    public RandomCollection(E value)
-    {
+    public RandomCollection(E value) {
         this();
 
         this.add(1, value);
     }
 
-    public RandomCollection(Random random)
-    {
+    public RandomCollection(Random random) {
         this.random = random;
     }
 
-    public RandomCollection<E> add(double weight, E value)
-    {
+    public RandomCollection<E> add(double weight, E value) {
         if (weight <= 0) return this;
         total += weight;
         map.put(total, value);
@@ -37,18 +32,15 @@ public class RandomCollection<E>
         return this;
     }
 
-    public boolean contains(E value)
-    {
+    public boolean contains(E value) {
         return this.entries.contains(value);
     }
 
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return this.entries.isEmpty();
     }
 
-    public E next()
-    {
+    public E next() {
         double value = random.nextDouble() * total;
         return map.higherEntry(value).getValue();
     }

@@ -1,7 +1,6 @@
 package co.runed.bolster.common.redis;
 
-public class RedisChannels
-{
+public class RedisChannels {
     /* Servers */
     public static final String REGISTER_SERVER = "RegisterServer";
     public static final String REGISTER_SERVER_RESPONSE = "RegisterServerResponse";

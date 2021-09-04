@@ -4,7 +4,6 @@ import co.runed.bolster.common.redis.payload.RequestPayload;
 
 import java.util.UUID;
 
-public class RequestPlayerDataPayload extends RequestPayload
-{
+public class RequestPlayerDataPayload extends RequestPayload {
     public UUID uuid;
 }

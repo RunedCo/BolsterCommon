@@ -3,17 +3,14 @@ package co.runed.bolster.common.properties;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Properties
-{
+public class Properties {
     private final Map<Property<?>, Object> values = new HashMap<>();
 
-    public Properties()
-    {
+    public Properties() {
 
     }
 
-    public Properties(Properties properties)
-    {
+    public Properties(Properties properties) {
         this.addAll(properties);
     }
 
@@ -22,8 +19,7 @@ public class Properties
      *
      * @return the number of properties
      */
-    public int size()
-    {
+    public int size() {
         return this.values.size();
     }
 
@@ -32,16 +28,14 @@ public class Properties
      *
      * @return
      */
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return this.values.isEmpty();
     }
 
     /**
      * Clears all properties
      */
-    public void clear()
-    {
+    public void clear() {
         this.values.clear();
     }
 
@@ -51,8 +45,7 @@ public class Properties
      * @param key the key
      * @return
      */
-    public boolean contains(Property<?> key)
-    {
+    public boolean contains(Property<?> key) {
         return this.values.containsKey(key);
     }
 
@@ -62,8 +55,7 @@ public class Properties
      * @param key the key
      * @return the property value
      */
-    public <T> T get(Property<T> key)
-    {
+    public <T> T get(Property<T> key) {
         if (key instanceof FunctionProperty) return ((FunctionProperty<T>) key).getFunction.apply(this);
         if (!this.values.containsKey(key)) return key.getDefault();
 
@@ -76,10 +68,8 @@ public class Properties
      * @param key   the key
      * @param value the value
      */
-    public <T> void set(Property<T> key, T value)
-    {
-        if (key instanceof FunctionProperty)
-        {
+    public <T> void set(Property<T> key, T value) {
+        if (key instanceof FunctionProperty) {
             ((FunctionProperty<T>) key).setFunction.accept(this, value);
             return;
         }
@@ -87,18 +77,15 @@ public class Properties
         this.values.put(key, value);
     }
 
-    public Map<Property<?>, Object> getAll()
-    {
+    public Map<Property<?>, Object> getAll() {
         return new HashMap<>(this.values);
     }
 
-    public void addAll(Properties values)
-    {
+    public void addAll(Properties values) {
         this.values.putAll(values.getAll());
     }
 
-    public void addAll(Map<Property<?>, Object> values)
-    {
+    public void addAll(Map<Property<?>, Object> values) {
         this.values.putAll(values);
     }
 }

@@ -1,20 +1,15 @@
 package co.runed.bolster.common.util;
 
-public class StringUtil
-{
-    public static boolean wildcardMatch(String input, String match)
-    {
+public class StringUtil {
+    public static boolean wildcardMatch(String input, String match) {
         return input.matches(createRegexFromGlob(match));
     }
 
-    public static String createRegexFromGlob(String glob)
-    {
+    public static String createRegexFromGlob(String glob) {
         StringBuilder out = new StringBuilder("^");
-        for (int i = 0; i < glob.length(); ++i)
-        {
+        for (int i = 0; i < glob.length(); ++i) {
             final char c = glob.charAt(i);
-            switch (c)
-            {
+            switch (c) {
                 case '*' -> out.append(".*");
                 case '?' -> out.append('.');
                 case '.' -> out.append("\\.");

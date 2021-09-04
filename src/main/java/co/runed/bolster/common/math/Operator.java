@@ -1,7 +1,6 @@
 package co.runed.bolster.common.math;
 
-public enum Operator
-{
+public enum Operator {
     ABOVE,
     ABOVE_OR_EQUAL,
     EQUAL,

@@ -3,8 +3,7 @@ package co.runed.bolster.common.math.easing;
 import java.util.function.BiFunction;
 
 // See https://easings.net/ for examples
-public enum Ease
-{
+public enum Ease {
     LINEAR((time, duration) -> time / duration),
     IN_SINE((time, duration) -> -Math.cos(time / duration * Ease._PiOver2) + 1),
     OUT_SINE((time, duration) -> Math.sin(time / duration * Ease._PiOver2)),
@@ -65,13 +64,11 @@ public enum Ease
 
     private final BiFunction<Double, Double, Double> easeFunction;
 
-    Ease(BiFunction<Double, Double, Double> easeFunction)
-    {
+    Ease(BiFunction<Double, Double, Double> easeFunction) {
         this.easeFunction = easeFunction;
     }
 
-    public BiFunction<Double, Double, Double> getEaseFunction()
-    {
+    public BiFunction<Double, Double, Double> getEaseFunction() {
         return easeFunction;
     }
 }
