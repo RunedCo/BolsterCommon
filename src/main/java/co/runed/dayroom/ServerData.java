@@ -14,7 +14,7 @@ public class ServerData {
 
     public String ipAddress;
     public int port;
-    public boolean restricted = false;
+    public boolean hidden = false;
 
     public int maxPlayers;
     public int maxPremiumPlayers;
@@ -24,7 +24,7 @@ public class ServerData {
 
     }
 
-    public ServerData(String id, String gameMode, String name, String iconMaterial, String status, String ipAddress, int port, boolean restricted) {
+    public ServerData(String id, String gameMode, String name, String iconMaterial, String status, String ipAddress, int port, boolean hidden) {
         this.id = id;
         this.gameMode = gameMode;
         this.name = name;
@@ -34,6 +34,6 @@ public class ServerData {
         this.ipAddress = ipAddress;
         this.port = port;
 
-        this.restricted = restricted;
+        this.hidden = hidden;
     }
 }

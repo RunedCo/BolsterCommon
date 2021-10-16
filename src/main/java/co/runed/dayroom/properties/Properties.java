@@ -69,8 +69,16 @@ public class Properties {
      * @param value the value
      */
     public <T> void set(Property<T> key, T value) {
-        if (key instanceof FunctionProperty) {
-            ((FunctionProperty<T>) key).setFunction.accept(this, value);
+        setUnsafe(key, value);
+    }
+
+    public <T> void setUnsafe(Property<T> key, Object value) {
+        if (key instanceof FunctionProperty && value != null) {
+            try {
+                ((FunctionProperty<T>) key).setFunction.accept(this, (T) value);
+            }
+            catch (Exception ignored) {
+            }
             return;
         }
 
