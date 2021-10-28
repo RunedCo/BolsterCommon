@@ -65,7 +65,7 @@ public class NumberUtil {
     }
 
     /* FROM https://stackoverflow.com/questions/60257300/how-to-set-a-number-field-with-a-different-number-type-using-java-reflection */
-    public static final Map<Class<?>, Setter> SETTERS = Map.copyOf(Map.<Class<?>, NumericSetter>ofEntries(
+    public static final Map<Class<?>, Setter> NUMERIC_SETTERS = Map.copyOf(Map.<Class<?>, NumericSetter>ofEntries(
             Map.entry(byte.class, (field, bean, n) -> field.setByte(bean, n.byteValue())),
             Map.entry(short.class, (field, bean, n) -> field.setShort(bean, n.shortValue())),
             Map.entry(int.class, (field, bean, n) -> field.setInt(bean, n.intValue())),

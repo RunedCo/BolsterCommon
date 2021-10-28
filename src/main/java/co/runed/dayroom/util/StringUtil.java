@@ -1,14 +1,24 @@
 package co.runed.dayroom.util;
 
+import java.util.Collection;
+
 public class StringUtil {
     public static boolean wildcardMatch(String input, String match) {
         return input.matches(createRegexFromGlob(match));
     }
 
+    public static boolean anyWildcardMatch(Collection<String> inputs, String match) {
+        for (var input : inputs) {
+            if (wildcardMatch(input, match)) return true;
+        }
+
+        return false;
+    }
+
     public static String createRegexFromGlob(String glob) {
-        StringBuilder out = new StringBuilder("^");
-        for (int i = 0; i < glob.length(); ++i) {
-            final char c = glob.charAt(i);
+        var out = new StringBuilder("^");
+        for (var i = 0; i < glob.length(); ++i) {
+            final var c = glob.charAt(i);
             switch (c) {
                 case '*' -> out.append(".*");
                 case '?' -> out.append('.');

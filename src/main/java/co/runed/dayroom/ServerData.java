@@ -7,9 +7,12 @@ import java.util.List;
 
 public class ServerData {
     public String id;
-    public String gameMode;
     public String name;
-    public String iconMaterial = "LIME_WOOL";
+
+    public String gameMode;
+    public String gameModeName;
+
+    public String iconMaterial = "BLUE_WOOL";
     public String status;
 
     public String ipAddress;

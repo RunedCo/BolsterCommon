@@ -16,4 +16,21 @@ public class RedisChannels {
     public static final String REQUEST_PLAYER_DATA_RESPONSE = "RequestPlayerDataResponse";
 
     public static final String UPDATE_PLAYER_DATA = "UpdatePlayerData";
+
+    /* TODO: Concept */
+    // GRANT_REWARD
+    // REQUEST_REWARDS
+    // REQUEST_REWARDS_RESPONSE
+
+    // REQUEST_NETWORK_STATS
+    // REQUEST_NETWORK_STATS_RESPONSE
+
+    // UPDATE_MATCH_HISTORY
+
+    // UPDATE_SETTING
+    // UNLOCK_SHOP_ITEM
+    // UPDATE_CURRENCY
+    // UPDATE_GAMEMODE_DATA
+    // UPDATE_COOLDOWN
+    // UPDATE_STATISTIC
 }
