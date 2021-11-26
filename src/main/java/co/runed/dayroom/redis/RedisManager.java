@@ -93,14 +93,14 @@ public class RedisManager extends JedisPubSub {
 
     @Override
     public void onSubscribe(String channel, int subscribedChannels) {
-        System.out.println("Client is Subscribed to channel : " + channel);
-        System.out.println("Client is Subscribed to " + subscribedChannels + " no. of channels");
+        System.out.println("Subscribed to channel: " + channel);
+        System.out.println("Subscribed to " + subscribedChannels + " no. of channels");
     }
 
     @Override
     public void onUnsubscribe(String channel, int subscribedChannels) {
-        System.out.println("Client is Unsubscribed from channel : " + channel);
-        System.out.println("Client is Subscribed to " + subscribedChannels + " no. of channels");
+        System.out.println("Unsubscribed from channel : " + channel);
+        System.out.println("Subscribed to " + subscribedChannels + " no. of channels");
     }
 
     public void publish(String channel, Payload payload) {

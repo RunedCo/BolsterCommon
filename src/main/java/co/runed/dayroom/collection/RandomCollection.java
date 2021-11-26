@@ -32,6 +32,14 @@ public class RandomCollection<E> {
         return this;
     }
 
+    public RandomCollection<E> addAll(Collection<E> collection) {
+        for (var entry : collection) {
+            this.add(1, entry);
+        }
+
+        return this;
+    }
+
     public boolean contains(E value) {
         return this.entries.contains(value);
     }
